@@ -1,58 +1,42 @@
-# testMarkdown
-
-## CNN Layer Architecture
-
-Below is an example architecture for a TensorFlow CNN model:
-
-### Input Layer
-
-- Input Shape: (batch_size, height, width, channels)
-- Number of Parameters: 0 (no learnable parameters in the input layer)
-
-### Convolutional Layer 1
-
-- Filter Size: (3, 3)
-- Number of Filters: 32
-- Stride: (1, 1)
-- Padding: 'same'
-- Activation: ReLU
-- Output Shape: (batch_size, height, width, 32)
-
-### Max Pooling Layer 1
-
-- Pool Size: (2, 2)
-- Stride: (2, 2)
-- Output Shape: (batch_size, height/2, width/2, 32)
-
-### Convolutional Layer 2
-
-- Filter Size: (3, 3)
-- Number of Filters: 64
-- Stride: (1, 1)
-- Padding: 'same'
-- Activation: ReLU
-- Output Shape: (batch_size, height/2, width/2, 64)
-
-### Max Pooling Layer 2
-
-- Pool Size: (2, 2)
-- Stride: (2, 2)
-- Output Shape: (batch_size, height/4, width/4, 64)
-
-### Flatten Layer
-
-- Output Shape: (batch_size, height/4 * width/4 * 64)
-
-### Fully Connected Layer 1
-
-- Number of Neurons: 128
-- Activation: ReLU
-- Output Shape: (batch_size, 128)
-
-### Fully Connected Layer 2 (Output Layer)
-
-- Number of Neurons: num_classes (depends on the classification task)
-- Activation: Softmax (for multi-class classification)
-- Output Shape: (batch_size, num_classes)
-
-Note: This is just an example architecture and the actual architecture may vary depending on the specific problem and requirements.
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_63 (Conv2D)          (None, 124, 129, 32)      320       
+                                                                 
+ max_pooling2d_62 (MaxPoolin  (None, 62, 65, 32)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_64 (Conv2D)          (None, 62, 65, 64)        18496     
+                                                                 
+ max_pooling2d_63 (MaxPoolin  (None, 31, 33, 64)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_65 (Conv2D)          (None, 31, 33, 128)       73856     
+                                                                 
+ max_pooling2d_64 (MaxPoolin  (None, 16, 17, 128)      0         
+ g2D)                                                            
+                                                                 
+ dropout_61 (Dropout)        (None, 16, 17, 128)       0         
+                                                                 
+ conv2d_66 (Conv2D)          (None, 16, 17, 256)       295168    
+                                                                 
+ max_pooling2d_65 (MaxPoolin  (None, 8, 9, 256)        0         
+ g2D)                                                            
+                                                                 
+ dropout_62 (Dropout)        (None, 8, 9, 256)         0         
+                                                                 
+ flatten_16 (Flatten)        (None, 18432)             0         
+                                                                 
+ dropout_63 (Dropout)        (None, 18432)             0         
+                                                                 
+ dense_32 (Dense)            (None, 64)                1179712   
+                                                                 
+ dropout_64 (Dropout)        (None, 64)                0         
+                                                                 
+ dense_33 (Dense)            (None, 8)                 520       
+                                                                 
+=================================================================
+Total params: 1,568,072
+Trainable params: 1,568,072
+Non-trainable params: 0
+_________________________________________________________________
