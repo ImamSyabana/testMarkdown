@@ -2,7 +2,8 @@ _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
  conv2d_63 (Conv2D)          (None, 124, 129, 32)      320       
-                                                                 
+                                               ## Subheader
+                                               ini adalah edit dari lokal                  
  max_pooling2d_62 (MaxPoolin  (None, 62, 65, 32)       0         
  g2D)                                                            
                                                                  
